@@ -1,0 +1,731 @@
+import React, { Component } from "react";
+import PokemonData from "./../PokemonData.json"
+import Card from "./Card";
+export class Outer extends Component {
+  data = [
+    {
+      id: 1,
+      name: {
+        english: "Bulbasaur",
+      },
+      type: ["Grass"],
+      base: {
+        HP: 45,
+        Attack: 49,
+        Defense: 49,
+        "Sp. Attack": 65,
+        "Sp. Defense": 65,
+        Speed: 45,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+      about: "https://pokemon.neoseeker.com/wiki/Bulbasaur#",
+    },
+    {
+      id: 2,
+      name: {
+        english: "Ivysaur",
+        japanese: "フシギソウ",
+        chinese: "妙蛙草",
+        french: "Herbizarre",
+      },
+      type: ["Poison"],
+      base: {
+        HP: 60,
+        Attack: 62,
+        Defense: 63,
+        "Sp. Attack": 80,
+        "Sp. Defense": 80,
+        Speed: 60,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
+      about: "https://pokemon.neoseeker.com/wiki/Ivysaur",
+    },
+    {
+      id: 3,
+      name: {
+        english: "Venusaur",
+        japanese: "フシギバナ",
+        chinese: "妙蛙花",
+        french: "Florizarre",
+      },
+      type: ["Grass"],
+      base: {
+        HP: 80,
+        Attack: 82,
+        Defense: 83,
+        "Sp. Attack": 100,
+        "Sp. Defense": 100,
+        Speed: 80,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
+      about: "https://pokemon.neoseeker.com/wiki/Venusaur#",
+    },
+    {
+      id: 4,
+      name: {
+        english: "Charmander",
+        japanese: "ヒトカゲ",
+        chinese: "小火龙",
+        french: "Salamèche",
+      },
+      type: ["Fire"],
+      base: {
+        HP: 39,
+        Attack: 52,
+        Defense: 43,
+        "Sp. Attack": 60,
+        "Sp. Defense": 50,
+        Speed: 65,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
+      about: "https://pokemon.neoseeker.com/wiki/Charmander#",
+    },
+    {
+      id: 5,
+      name: {
+        english: "Charmeleon",
+        japanese: "リザード",
+        chinese: "火恐龙",
+        french: "Reptincel",
+      },
+      type: ["Fire"],
+      base: {
+        HP: 58,
+        Attack: 64,
+        Defense: 58,
+        "Sp. Attack": 80,
+        "Sp. Defense": 65,
+        Speed: 80,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png",
+      about: "https://pokemon.neoseeker.com/wiki/Charmeleon",
+    },
+    {
+      id: 6,
+      name: {
+        english: "Charizard",
+        japanese: "リザードン",
+        chinese: "喷火龙",
+        french: "Dracaufeu",
+      },
+      type: ["Fire", "Flying"],
+      base: {
+        HP: 78,
+        Attack: 84,
+        Defense: 78,
+        "Sp. Attack": 109,
+        "Sp. Defense": 85,
+        Speed: 100,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png",
+      about: "https://pokemon.neoseeker.com/wiki/Charizard",
+    },
+    {
+      id: 7,
+      name: {
+        english: "Squirtle",
+        japanese: "ゼニガメ",
+        chinese: "杰尼龟",
+        french: "Carapuce",
+      },
+      type: ["Water"],
+      base: {
+        HP: 44,
+        Attack: 48,
+        Defense: 65,
+        "Sp. Attack": 50,
+        "Sp. Defense": 64,
+        Speed: 43,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
+      about: "https://pokemon.neoseeker.com/wiki/Squirtle",
+    },
+    {
+      id: 8,
+      name: {
+        english: "Wartortle",
+        japanese: "カメール",
+        chinese: "卡咪龟",
+        french: "Carabaffe",
+      },
+      type: ["Water"],
+      base: {
+        HP: 59,
+        Attack: 63,
+        Defense: 80,
+        "Sp. Attack": 65,
+        "Sp. Defense": 80,
+        Speed: 58,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png",
+      about: "https://pokemon.neoseeker.com/wiki/Wartortle",
+    },
+    {
+      id: 9,
+      name: {
+        english: "Blastoise",
+        japanese: "カメックス",
+        chinese: "水箭龟",
+        french: "Tortank",
+      },
+      type: ["Water"],
+      base: {
+        HP: 79,
+        Attack: 83,
+        Defense: 100,
+        "Sp. Attack": 85,
+        "Sp. Defense": 105,
+        Speed: 78,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png",
+      about: "https://pokemon.neoseeker.com/wiki/Blastoise",
+    },
+    {
+      id: 10,
+      name: {
+        english: "Caterpie",
+        japanese: "キャタピー",
+        chinese: "绿毛虫",
+        french: "Chenipan",
+      },
+      type: ["Bug"],
+      base: {
+        HP: 45,
+        Attack: 30,
+        Defense: 35,
+        "Sp. Attack": 20,
+        "Sp. Defense": 20,
+        Speed: 45,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png",
+      about: "https://pokemon.neoseeker.com/wiki/Caterpie",
+    },
+    {
+      id: 11,
+      name: {
+        english: "Metapod",
+        japanese: "トランセル",
+        chinese: "铁甲蛹",
+        french: "Chrysacier",
+      },
+      type: ["Bug"],
+      base: {
+        HP: 50,
+        Attack: 20,
+        Defense: 55,
+        "Sp. Attack": 25,
+        "Sp. Defense": 25,
+        Speed: 30,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png",
+      about: "https://pokemon.neoseeker.com/wiki/Metapod",
+    },
+    {
+      id: 12,
+      name: {
+        english: "Butterfree",
+        japanese: "バタフリー",
+        chinese: "巴大蝶",
+        french: "Papilusion",
+      },
+      type: ["Bug", "Flying"],
+      base: {
+        HP: 60,
+        Attack: 45,
+        Defense: 50,
+        "Sp. Attack": 90,
+        "Sp. Defense": 80,
+        Speed: 70,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png",
+      about: "https://pokemon.neoseeker.com/wiki/Butterfree",
+    },
+    {
+      id: 13,
+      name: {
+        english: "Weedle",
+        japanese: "ビードル",
+        chinese: "独角虫",
+        french: "Aspicot",
+      },
+      type: ["Bug", "Poison"],
+      base: {
+        HP: 40,
+        Attack: 35,
+        Defense: 30,
+        "Sp. Attack": 20,
+        "Sp. Defense": 20,
+        Speed: 50,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png",
+      about: "https://pokemon.neoseeker.com/wiki/Weedle",
+    },
+    {
+      id: 14,
+      name: {
+        english: "Kakuna",
+        japanese: "コクーン",
+        chinese: "铁壳蛹",
+        french: "Coconfort",
+      },
+      type: ["Bug", "Poison"],
+      base: {
+        HP: 45,
+        Attack: 25,
+        Defense: 50,
+        "Sp. Attack": 25,
+        "Sp. Defense": 25,
+        Speed: 35,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png",
+      about: "https://pokemon.neoseeker.com/wiki/Kakuna",
+    },
+    {
+      id: 15,
+      name: {
+        english: "Beedrill",
+        japanese: "スピアー",
+        chinese: "大针蜂",
+        french: "Dardargnan",
+      },
+      type: ["Bug", "Poison"],
+      base: {
+        HP: 65,
+        Attack: 90,
+        Defense: 40,
+        "Sp. Attack": 45,
+        "Sp. Defense": 80,
+        Speed: 75,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png",
+      about: "https://pokemon.neoseeker.com/wiki/Beedrill",
+    },
+    {
+      id: 16,
+      name: {
+        english: "Pidgey",
+        japanese: "ポッポ",
+        chinese: "波波",
+        french: "Roucool",
+      },
+      type: ["Normal", "Flying"],
+      base: {
+        HP: 40,
+        Attack: 45,
+        Defense: 40,
+        "Sp. Attack": 35,
+        "Sp. Defense": 35,
+        Speed: 56,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png",
+      about: "https://pokemon.neoseeker.com/wiki/Pidgey",
+    },
+    {
+      id: 17,
+      name: {
+        english: "Pidgeotto",
+        japanese: "ピジョン",
+        chinese: "比比鸟",
+        french: "Roucoups",
+      },
+      type: ["Normal", "Flying"],
+      base: {
+        HP: 63,
+        Attack: 60,
+        Defense: 55,
+        "Sp. Attack": 50,
+        "Sp. Defense": 50,
+        Speed: 71,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png",
+      about: "https://pokemon.neoseeker.com/wiki/Pidgeotto",
+    },
+    {
+      id: 18,
+      name: {
+        english: "Pidgeot",
+        japanese: "ピジョット",
+        chinese: "大比鸟",
+        french: "Roucarnage",
+      },
+      type: ["Normal", "Flying"],
+      base: {
+        HP: 83,
+        Attack: 80,
+        Defense: 75,
+        "Sp. Attack": 70,
+        "Sp. Defense": 70,
+        Speed: 101,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png",
+      about: "https://pokemon.neoseeker.com/wiki/Pidgeot",
+    },
+    {
+      id: 19,
+      name: {
+        english: "Rattata",
+        japanese: "コラッタ",
+        chinese: "小拉达",
+        french: "Rattata",
+      },
+      type: ["Normal"],
+      base: {
+        HP: 30,
+        Attack: 56,
+        Defense: 35,
+        "Sp. Attack": 25,
+        "Sp. Defense": 35,
+        Speed: 72,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png",
+      about: "https://pokemon.neoseeker.com/wiki/Rattata",
+    },
+    {
+      id: 20,
+      name: {
+        english: "Raticate",
+        japanese: "ラッタ",
+        chinese: "拉达",
+        french: "Rattatac",
+      },
+      type: ["Normal"],
+      base: {
+        HP: 55,
+        Attack: 81,
+        Defense: 60,
+        "Sp. Attack": 50,
+        "Sp. Defense": 70,
+        Speed: 97,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/020.png",
+      about: "https://pokemon.neoseeker.com/wiki/Raticate",
+    },
+    {
+      id: 21,
+      name: {
+        english: "Spearow",
+        japanese: "オニスズメ",
+        chinese: "烈雀",
+        french: "Piafabec",
+      },
+      type: ["Normal", "Flying"],
+      base: {
+        HP: 40,
+        Attack: 60,
+        Defense: 30,
+        "Sp. Attack": 31,
+        "Sp. Defense": 31,
+        Speed: 70,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/021.png",
+      about: "https://pokemon.neoseeker.com/wiki/Spearow",
+    },
+    {
+      id: 22,
+      name: {
+        english: "Fearow",
+        japanese: "オニドリル",
+        chinese: "大嘴雀",
+        french: "Rapasdepic",
+      },
+      type: ["Normal", "Flying"],
+      base: {
+        HP: 65,
+        Attack: 90,
+        Defense: 65,
+        "Sp. Attack": 61,
+        "Sp. Defense": 61,
+        Speed: 100,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/022.png",
+      about: "https://pokemon.neoseeker.com/wiki/Fearow",
+    },
+    {
+      id: 23,
+      name: {
+        english: "Ekans",
+        japanese: "アーボ",
+        chinese: "阿柏蛇",
+        french: "Abo",
+      },
+      type: ["Poison"],
+      base: {
+        HP: 35,
+        Attack: 60,
+        Defense: 44,
+        "Sp. Attack": 40,
+        "Sp. Defense": 54,
+        Speed: 55,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/023.png",
+      about: "https://pokemon.neoseeker.com/wiki/Ekans",
+    },
+    {
+      id: 24,
+      name: {
+        english: "Arbok",
+        japanese: "アーボック",
+        chinese: "阿柏怪",
+        french: "Arbok",
+      },
+      type: ["Poison"],
+      base: {
+        HP: 60,
+        Attack: 95,
+        Defense: 69,
+        "Sp. Attack": 65,
+        "Sp. Defense": 79,
+        Speed: 80,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png",
+      about: "https://pokemon.neoseeker.com/wiki/Arbok",
+    },
+    {
+      id: 25,
+      name: {
+        english: "Pikachu",
+        japanese: "ピカチュウ",
+        chinese: "皮卡丘",
+        french: "Pikachu",
+      },
+      type: ["Electric"],
+      base: {
+        HP: 35,
+        Attack: 55,
+        Defense: 40,
+        "Sp. Attack": 50,
+        "Sp. Defense": 50,
+        Speed: 90,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+      about: "https://pokemon.neoseeker.com/wiki/Pikachu",
+    },
+    {
+      id: 26,
+      name: {
+        english: "Raichu",
+        japanese: "ライチュウ",
+        chinese: "雷丘",
+        french: "Raichu",
+      },
+      type: ["Electric"],
+      base: {
+        HP: 60,
+        Attack: 90,
+        Defense: 55,
+        "Sp. Attack": 90,
+        "Sp. Defense": 80,
+        Speed: 110,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png",
+      about: "https://pokemon.neoseeker.com/wiki/Raichu",
+    },
+    {
+      id: 27,
+      name: {
+        english: "Sandshrew",
+        japanese: "サンド",
+        chinese: "穿山鼠",
+        french: "Sabelette",
+      },
+      type: ["Ground"],
+      base: {
+        HP: 50,
+        Attack: 75,
+        Defense: 85,
+        "Sp. Attack": 20,
+        "Sp. Defense": 30,
+        Speed: 40,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/027.png",
+      about: "https://pokemon.neoseeker.com/wiki/Sandshrew",
+    },
+    {
+      id: 28,
+      name: {
+        english: "Sandslash",
+        japanese: "サンドパン",
+        chinese: "穿山王",
+        french: "Sablaireau",
+      },
+      type: ["Ground"],
+      base: {
+        HP: 75,
+        Attack: 100,
+        Defense: 110,
+        "Sp. Attack": 45,
+        "Sp. Defense": 55,
+        Speed: 65,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/028.png",
+      about: "https://pokemon.neoseeker.com/wiki/Sandslash",
+    },
+    {
+      id: 29,
+      name: {
+        english: "Nidoran♀",
+        japanese: "ニドラン♀",
+        chinese: "尼多兰",
+        french: "Nidoran♀",
+      },
+      type: ["Poison"],
+      base: {
+        HP: 55,
+        Attack: 47,
+        Defense: 52,
+        "Sp. Attack": 40,
+        "Sp. Defense": 40,
+        Speed: 41,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/029.png",
+      about: "https://pokemon.neoseeker.com/wiki/Nidoran♀",
+    },
+    {
+      id: 30,
+      name: {
+        english: "Nidorina",
+        japanese: "ニドリーナ",
+        chinese: "尼多娜",
+        french: "Nidorina",
+      },
+      type: ["Poison"],
+      base: {
+        HP: 70,
+        Attack: 62,
+        Defense: 67,
+        "Sp. Attack": 55,
+        "Sp. Defense": 55,
+        Speed: 56,
+      },
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/030.png",
+      about: "https://pokemon.neoseeker.com/wiki/Nidorina",
+    },
+  ];
+  constructor() {
+    super();
+    this.state = {
+      data: this.data.slice(0, 10),
+      loading: false,
+      page: 1,
+      searchedData: {name:{},type:[""],base:{ HP: '',
+        Attack: '',
+        Defense: '',
+        
+        Speed: '',}},
+        message:""
+    };
+
+  }
+  handlePreviousClick = () => {
+    let n = this.state.page * 10 - 10;
+    this.setState({
+      data: this.data.slice(n - 10, n),
+      page: this.state.page - 1,
+    });
+  };
+  handleNextClick = () => {
+    let n = this.state.page * 10;
+    this.setState({
+      data: this.data.slice(n, n + 10),
+      page: this.state.page + 1,
+    });
+  };
+  handlePokemonData = (element) => {
+    element.preventDefault();
+    let sname = element.target[0].value;
+    let name=sname.charAt(0).toUpperCase() + sname.slice(1);
+    PokemonData.map((item) => {
+      
+      if (item.name.english === name) {
+        this.setState({
+          searchedData: item,
+        });
+      }
+     return 0;
+    });
+   
+  };
+
+  render() {
+    return (
+      <div className="container my-3">
+        <h1 className="my-3">
+          <strong>Pokemons</strong>
+        </h1>
+
+        <form
+          className="d-flex my-3"  id="search"
+          onSubmit={(element) => {
+            this.handlePokemonData(element);
+          }}
+        >
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search Pokemon"
+            aria-label="Search"
+            name="pokemon"
+          />
+          <button className="btn btn-primary" type="submit">
+            Search
+          </button>
+        </form>
+        
+        {(this.state.searchedData.id !== undefined) && (
+          
+          <div className="d-flex justify-content-center"  key={this.state.searchedData.name}>
+            <Card
+              title={this.state.searchedData.name.english}
+              type={this.state.searchedData.type}
+             hp={this.state.searchedData.base.HP}
+             attack={this.state.searchedData.base.Attack}
+              defence={this.state.searchedData.base.Defense}
+              speed={this.state.searchedData.base.Speed}
+              imgUrl={this.state.searchedData.image}
+              about={this.state.searchedData.about}
+            />
+          </div>
+        )}
+   
+        <div className="row">
+          {this.state.data.map((element) => {
+            return (
+              <div className="col md-3" key={element.id}>
+                <Card
+                  title={element.name.english}
+                  type={element.type}
+                  hp={element.base.HP}
+                  attack={element.base.Attack}
+                  defence={element.base.Defense}
+                  speed={element.base.Speed}
+                  imgUrl={element.image}
+                  about={element.about}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div className="container d-flex justify-content-between">
+          <button
+            disabled={this.state.page <= 1}
+            type="button"
+            className="btn btn-dark"
+            onClick={this.handlePreviousClick} id="previous"
+          >
+            &larr; Previous
+          </button>
+          <button
+            disabled={this.state.page >= 3}
+            type="button"
+            className="btn btn-dark"
+            onClick={this.handleNextClick} id="next"
+          >
+            &rarr; Next
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Outer;
